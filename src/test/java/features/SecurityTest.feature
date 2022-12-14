@@ -1,7 +1,7 @@
 Feature: Verify TEK Insurance Token
 
 Background: 
-* url "https://tek-insurance-api.azurewebsites.net"
+* url appURL
 * def token = call read("GenerateToken.feature")
 * def tokenValue = token.response.token
 * path "/api/token/verify"

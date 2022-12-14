@@ -4,11 +4,11 @@ Feature: Add a car request
   # 2. add a car to that acccount
   @addCar
   Scenario: add car
-    Given url "https://tek-insurance-api.azurewebsites.net"
+    Given url appURL
     * def token = call read("GenerateToken.feature")
     * def tokenValue = token.response.token
     * header Authorization = "Bearer " + tokenValue
-    * def postRequest = call read("PostRequestTest.feature")
+    * def postRequest = callonce read("EndToEnd.feature")
     * def idValue = postRequest.response.id
     * param primaryPersonId = idValue
     * path "api/accounts/add-account-car"
@@ -18,8 +18,8 @@ Feature: Add a car request
       "id": 0,
       "make": "Toyota",
       "model": "corrolla",
-      "year": "1997",
-      "licensePlate": "TEK1122"
+      "year": "1998",
+      "licensePlate": "TEK1155"
       }
       """
       * method post

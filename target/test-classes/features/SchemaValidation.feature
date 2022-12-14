@@ -2,7 +2,7 @@ Feature: Schema Validation
 
   @schemaValidation
   Scenario: Get Account Test
-    Given url "https://tek-insurance-api.azurewebsites.net"
+    Given url appURL
     * def token = call read("GenerateToken.feature")
     * def tokenValue = token.response.token
     * header Authorization = "Bearer " + tokenValue

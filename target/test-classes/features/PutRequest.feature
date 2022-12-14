@@ -1,14 +1,11 @@
-Feature: Add a car request
+Feature: Put Request
 
-  # 1. call the post request scenario
-  # 2. add a car to that acccount
-  @addCar
-  Scenario: add car
+  Scenario: Update Car test
     Given url appURL
     * def token = call read("GenerateToken.feature")
     * def tokenValue = token.response.token
     * header Authorization = "Bearer " + tokenValue
-    * def postRequest = callonce read("EndToEnd.feature")
+    * def postRequest = callonce read("PostCarRequest.feature")
     * def idValue = postRequest.response.id
     * param primaryPersonId = idValue
     * path "api/accounts/add-account-car"
@@ -22,5 +19,5 @@ Feature: Add a car request
       "licensePlate": "TEK1155"
       }
       """
-      * method post
-      * print response
+    * method post
+    * print response
